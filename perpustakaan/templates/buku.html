@@ -3,11 +3,28 @@
 {% block content %}
 
     <h1>{{ page_title }}</h1>
-    <ul>
-        {% for book in list_of_book %}
-            <li>{{ book }}</li>
-        {% endfor %}
 
-    </ul>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Judul</th>
+                <th>Penulis</th>
+                <th>Penerbit</th>
+                <th>Kategori</th>
+                <th>Stok</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+                <tr>
+                    <td>{{ book.judul }}</td>
+                    <td>{{ book.penulis }}</td>
+                    <td>{{ book.penerbit }}</td>
+                    <td>{{ book.kategori.nama }}</td>
+                    <td>{{ book.jumlah }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 
 {% endblock %}

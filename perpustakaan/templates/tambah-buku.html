@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>{{ page_title }}</h1>
+
+    {% if message %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endif %}
+
+    <form action="/buku/tambah" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Tambah Buku" class="btn btn-primary">
+    </form>
+
+{% endblock %}
